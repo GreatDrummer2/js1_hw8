@@ -31,20 +31,9 @@ for(var i= 1 ;i<= 8;i++){
   }
 }
 
-/*for(var i=0;i<8;i++){
-  for(var j = 0;j<8;j++){
-    if((i+j)%2){
-      var black = document.createElement('div');
-      black.className = 'black ';
-      desk.appendChild(black);
-    }
-    else{
-      var white = document.createElement('div');
-      white.className = 'white ';
-      desk.appendChild(white);
-    }
-  }
-}*/
+/*black.onclick = function(){
+  alert(black.id);*/
+//}
 
 for (var i = 65; i <= 72;i++){
 var tabdown = document.createElement('div');
@@ -74,3 +63,8 @@ for (var i = 1; i <=8;i++){
   number2.innerHTML = ''+i;
   colright.appendChild(number2);
 }
+
+/*var coord = getElementById('coordinates');
+coord.className = 'coordinates';
+coord.innerHTML = 'hello';
+document.body.appendChild(coord);*/
