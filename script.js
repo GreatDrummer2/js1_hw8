@@ -1,8 +1,3 @@
-var coord = getElementById('coordinates');
-coord.className = 'coordinates';
-coord.innerHTML = 'hello';
-document.body.appendChild(coord);
-
 var text = document.createElement('div');
 text.className = 'text';
 text.innerHTML = 'Here we are';
@@ -36,9 +31,12 @@ for(var i= 1 ;i<= 8;i++){
   }
 }
 
-/*black.onclick = function(){
-  alert(black.id);*/
-//}
+black.onclick = function(){
+  alert(''+black.id);
+}
+
+var coord = document.getElementById('coordinates');
+coord.innerHTML = black.id;
 
 for (var i = 65; i <= 72;i++){
 var tabdown = document.createElement('div');

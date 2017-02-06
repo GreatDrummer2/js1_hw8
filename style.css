@@ -92,7 +92,7 @@ body{
 	text-align: center;
 	transform: rotate(180deg);
 }
-.coordinates{
+#coordinates{
 	position: absolute;
 	top:1000px;
 	left:370px;
