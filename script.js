@@ -7,44 +7,40 @@ var desk = document.createElement('div'); // формируем шахматну
 desk.className = 'desk';
 document.body.appendChild(desk);
 
-for (var i = 65; i <= 72;i++){
+for (var i = 0; i <8;i++){
 var tabup = document.createElement('div'); // буквы сверху
 tabup.className = 'tabup';
-tabup.innerHTML = String.fromCharCode(i);
+tabup.innerHTML = String.fromCharCode(65+i);
 desk.appendChild(tabup);
 }
 
 
 for(var i= 1 ;i<= 8;i++){
-  for(var j = 65;j<=72;j++){
+  for(var j = 0;j<8;j++){
     if((i+j)%2){
       var black = document.createElement('div');
       black.className = 'black';
-      black.id = String.fromCharCode(j)+i;
-      black.innerHTML = String.fromCharCode(j)+i;
+      black.id = String.fromCharCode(65+j)+i;
       desk.appendChild(black);
-      black.onclick = function(){
-         var coord = document.getElementById('coordinates');
-         coord.innerHTML = this.id;
-      }
     }
     else{
       var white = document.createElement('div');
       white.className = 'white';
-      white.id = String.fromCharCode(j)+i;
-      white.onclick = function(){
-        var coord = document.getElementById('coordinates');
-        coord.innerHTML = this.id;
-      }
+      white.id = String.fromCharCode(65+j)+i;
       desk.appendChild(white);
     }
   }
 }
 
-for (var i = 65; i <= 72;i++){  //буквы снизу
+desk.onclick = function(event){
+  var coord = document.getElementById('coordinates');
+  coord.innerHTML = event.target.id;
+}
+
+for (var i = 0; i <8;i++){  //буквы снизу
 var tabdown = document.createElement('div');
 tabdown.className = 'tabdown';
-tabdown.innerHTML = String.fromCharCode(i);
+tabdown.innerHTML = String.fromCharCode(65+i);
 desk.appendChild(tabdown);
 }
 
