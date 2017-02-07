@@ -32,11 +32,19 @@ for(var i= 1 ;i<= 8;i++){
   }
 }
 
-desk.onclick = function(event){
+desk.onmouseover = function(event){
   var coord = document.getElementById('coordinates');
   coord.innerHTML = event.target.id;
 }
 
+document.body.onkeydown = function(event){
+  if(event.keyCode != 37){
+    return;
+  }
+  else{
+    alert('awsd');
+  }
+}
 for (var i = 0; i <8;i++){  //буквы снизу
 var tabdown = document.createElement('div');
 tabdown.className = 'tabdown';

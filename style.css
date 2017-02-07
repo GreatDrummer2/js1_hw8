@@ -30,7 +30,7 @@ body{
 	height:50px;
 	box-sizing: border-box;
 }
-.black:active,.white:active{
+.black:active,.white:active,.black:hover,.white:hover{
 	border:2px solid #7338ff;
 }
 .white{
