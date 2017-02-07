@@ -48,8 +48,7 @@ for(var i= 1 ;i<= 8;i++){
     }
   }
 }
-var coord;
-desk.onclick = function(event){
+var coord=desk.onclick = function(event){
   coord = document.getElementById('coordinates');
   coord.innerHTML = event.target.id;
 }
@@ -63,16 +62,17 @@ document.body.onkeydown = function(event){
     counter_for_keyboard++;
   }
   else if(event.keyCode == 37){
-    counter_for_keyboard--;
     if(counter_for_keyboard<=0) counter_for_keyboard=64;
     coord.innerHTML = desk.children[counter_for_keyboard-1].id;
+    counter_for_keyboard--;
   }
   else if(event.keyCode == 38){
     ;
   }
   else if(event.keyCode == 40){
-    coord.innerHTML = desk.children[counter_for_keyboard*8].id;
-    counter_for_keyboard++;
+    if(counter_for_keyboard >=64) counter_for_keyboard=counter_for_keyboard%8+1;
+    coord.innerHTML = desk.children[counter_for_keyboard].id;
+    counter_for_keyboard=counter_for_keyboard+8;
   }
 }
 
