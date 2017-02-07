@@ -14,9 +14,33 @@ body{
 .desk{
 	background:#666;
 	width :400px;
-	height:460px;
+	height:400px;
+	position: absolute;
+	top:430px;
+	left:400px;
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: center;
+}
+.tup{
+	height: 30px;
+	width: 400px;
 	position: absolute;
 	top:400px;
+	left:400px;
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-content: center;
+}
+.tdown{
+	height: 30px;
+	width: 400px;
+	position: absolute;
+	top:830px;
 	left:400px;
 	display:flex;
 	flex-direction: row;

@@ -7,11 +7,28 @@ var desk = document.createElement('div'); // формируем шахматну
 desk.className = 'desk';
 document.body.appendChild(desk);
 
+
+var tup = document.createElement('div'); // 
+tup.className = 'tup';
+document.body.appendChild(tup);
+
+var tdown = document.createElement('div'); // 
+tdown.className = 'tdown';
+document.body.appendChild(tdown);
+
+for (var i = 0; i <8;i++){  //буквы снизу
+var tabdown = document.createElement('div');
+tabdown.className = 'tabdown';
+tabdown.innerHTML = String.fromCharCode(65+i);
+tdown.appendChild(tabdown);
+}
+
+
 for (var i = 0; i <8;i++){
 var tabup = document.createElement('div'); // буквы сверху
 tabup.className = 'tabup';
 tabup.innerHTML = String.fromCharCode(65+i);
-desk.appendChild(tabup);
+tup.appendChild(tabup);
 }
 
 
@@ -31,47 +48,32 @@ for(var i= 1 ;i<= 8;i++){
     }
   }
 }
-
-desk.onmouseover = function(event){
-  var coord = document.getElementById('coordinates');
+var coord;
+desk.onclick = function(event){
+  coord = document.getElementById('coordinates');
   coord.innerHTML = event.target.id;
 }
-
 var counter_for_keyboard = 0;
 document.body.onkeydown = function(event){ 
   var coord = document.getElementById('coordinates');
   if(event.keyCode == 39){
-    if(counter_for_keyboard == 64){
-      counter_for_keyboard = 0;
-    } 
-    var sqr = desk.children[8+counter_for_keyboard];
-    if(sqr.className =='black'){
-      sqr.className = 'black border'; //settimeout????
-    }
-    else if(sqr.className =='white'){
-      sqr.className = 'white border';
-    }
-    coord.innerHTML = desk.children[8+counter_for_keyboard].id;
-    ++counter_for_keyboard;
-  }
-  else if(event.keyCode == 37){
-    //if(counter_for_keyboard <= ) counter_for_keyboard = 64;
-    coord.innerHTML = desk.children[7+counter_for_keyboard].id;
+    coord = document.getElementById('coordinates');
+    if(counter_for_keyboard == 64) counter_for_keyboard = 0;
+    coord.innerHTML = desk.children[counter_for_keyboard].id;
     counter_for_keyboard++;
   }
+  else if(event.keyCode == 37){
+     counter_for_keyboard--;
+    if(counter_for_keyboard<=0) counter_for_keyboard=64;
+    coord.innerHTML = desk.children[counter_for_keyboard-1].id;
+  }
   else if(event.keyCode == 38){
-    alert(38);
+    ;
   }
   else if(event.keyCode == 40){
-
+    coord.innerHTML = desk.children[counter_for_keyboard+8].id;
+    counter_for_keyboard=counter_for_keyboard+8;
   }
-}
-
-for (var i = 0; i <8;i++){  //буквы снизу
-var tabdown = document.createElement('div');
-tabdown.className = 'tabdown';
-tabdown.innerHTML = String.fromCharCode(65+i);
-desk.appendChild(tabdown);
 }
 
 var colleft = document.createElement('div'); //боковые цифры
