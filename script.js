@@ -38,11 +38,19 @@ desk.onmouseover = function(event){
 }
 
 var counter_for_keyboard = 0;
-
 document.body.onkeydown = function(event){ 
   var coord = document.getElementById('coordinates');
   if(event.keyCode == 39){
-    if(counter_for_keyboard == 64) counter_for_keyboard = 0;
+    if(counter_for_keyboard == 64){
+      counter_for_keyboard = 0;
+    } 
+    var sqr = desk.children[8+counter_for_keyboard];
+    if(sqr.className =='black'){
+      sqr.className = 'black border'; //settimeout????
+    }
+    else if(sqr.className =='white'){
+      sqr.className = 'white border';
+    }
     coord.innerHTML = desk.children[8+counter_for_keyboard].id;
     ++counter_for_keyboard;
   }
@@ -58,6 +66,7 @@ document.body.onkeydown = function(event){
 
   }
 }
+
 for (var i = 0; i <8;i++){  //буквы снизу
 var tabdown = document.createElement('div');
 tabdown.className = 'tabdown';
