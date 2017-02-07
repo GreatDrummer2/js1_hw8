@@ -37,12 +37,25 @@ desk.onmouseover = function(event){
   coord.innerHTML = event.target.id;
 }
 
-document.body.onkeydown = function(event){
-  if(event.keyCode != 37){
-    return;
+var counter_for_keyboard = 0;
+
+document.body.onkeydown = function(event){ 
+  var coord = document.getElementById('coordinates');
+  if(event.keyCode == 39){
+    if(counter_for_keyboard == 64) counter_for_keyboard = 0;
+    coord.innerHTML = desk.children[8+counter_for_keyboard].id;
+    ++counter_for_keyboard;
   }
-  else{
-    alert('awsd');
+  else if(event.keyCode == 37){
+    //if(counter_for_keyboard <= ) counter_for_keyboard = 64;
+    coord.innerHTML = desk.children[7+counter_for_keyboard].id;
+    counter_for_keyboard++;
+  }
+  else if(event.keyCode == 38){
+    alert(38);
+  }
+  else if(event.keyCode == 40){
+
   }
 }
 for (var i = 0; i <8;i++){  //буквы снизу
