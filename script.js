@@ -50,6 +50,9 @@ for(var i= 1 ;i<= 8;i++){
 }
 var coord=desk.onclick = function(event){
   coord = document.getElementById('coordinates');
+  x= document.getElementsByClassName('active')[0];
+  if(x != undefined)x.classList.remove('active');
+  event.target.classList.add('active'); 
   coord.innerHTML = event.target.id;
 }
 var counter_for_keyboard = 0;
