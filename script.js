@@ -55,27 +55,35 @@ var coord=desk.onclick = function(event){
   event.target.classList.add('active'); 
   coord.innerHTML = event.target.id;
 }
-var counter_for_keyboard = 0;
+
 document.body.onkeydown = function(event){ 
-  var coord = document.getElementById('coordinates');
   if(event.keyCode == 39){
     coord = document.getElementById('coordinates');
-    if(counter_for_keyboard == 64) counter_for_keyboard = 0;
-    coord.innerHTML = desk.children[counter_for_keyboard].id;
-    counter_for_keyboard++;
+    elem = document.getElementsByClassName('active')[0].nextSibling;
+    if(elem ==null){
+      elem = desk.children[0];
+    }
+    x= document.getElementsByClassName('active')[0];
+    if(x != undefined)x.classList.remove('active');
+    elem.classList.add('active'); 
+    coord.innerHTML = elem.id;
   }
   else if(event.keyCode == 37){
-    if(counter_for_keyboard<=0) counter_for_keyboard=64;
-    coord.innerHTML = desk.children[counter_for_keyboard-1].id;
-    counter_for_keyboard--;
+    coord = document.getElementById('coordinates');
+    elem = document.getElementsByClassName('active')[0].previousSibling;
+    if(elem ==null){
+      elem = desk.children[63];
+    }
+    x= document.getElementsByClassName('active')[0];
+    if(x != undefined)x.classList.remove('active');
+    elem.classList.add('active'); 
+    coord.innerHTML = elem.id;
   }
   else if(event.keyCode == 38){
-    ;
+  
   }
   else if(event.keyCode == 40){
-    if(counter_for_keyboard >=64) counter_for_keyboard=counter_for_keyboard%8+1;
-    coord.innerHTML = desk.children[counter_for_keyboard].id;
-    counter_for_keyboard=counter_for_keyboard+8;
+    
   }
 }
 
