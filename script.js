@@ -85,9 +85,13 @@ document.body.onkeydown = function(event){
     arr=[].map.call(desk.children,function(el){return el});
     i=arr.indexOf(document.getElementsByClassName('active')[0]);
     desk.children[i].classList.remove('active');
-    if(i<=7){
-      desk.children[i%8-1].classList.add('active');
-      a=i%8-1;
+    if(i<=7 && i!=0){
+      desk.children[i+55].classList.add('active');
+      a=i+55;
+    }
+    else if(i==0){
+      desk.children[63].classList.add('active');
+      a=63;
     }
     else {
       desk.children[i-8].classList.add('active');
@@ -104,7 +108,7 @@ document.body.onkeydown = function(event){
       desk.children[i%8+1].classList.add('active');
       a=i%8+1;
     }
-    if(i==63){
+    else if(i==63){
       desk.children[0].classList.add('active');
       a=0;
     }
