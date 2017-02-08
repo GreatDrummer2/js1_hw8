@@ -81,16 +81,32 @@ document.body.onkeydown = function(event){
     coord.innerHTML = elem.id;
   }
   else if(event.keyCode == 38){
-    
+    coord = document.getElementById('coordinates');
+    arr=[].map.call(desk.children,function(el){return el});
+    i=arr.indexOf(document.getElementsByClassName('active')[0]);
+    desk.children[i].classList.remove('active');
+    if(i<=7){
+      desk.children[i%8-1].classList.add('active');
+      a=i%8-1;
+    }
+    else {
+      desk.children[i-8].classList.add('active');
+      a=i-8;
+    }
+    coord.innerHTML = desk.children[a].id;
   }
   else if(event.keyCode == 40){
     coord = document.getElementById('coordinates');
     arr=[].map.call(desk.children,function(el){return el});
     i=arr.indexOf(document.getElementsByClassName('active')[0]);
     desk.children[i].classList.remove('active');
-    if(i>=56){
+    if(i>=56 && i!=63){
       desk.children[i%8+1].classList.add('active');
       a=i%8+1;
+    }
+    if(i==63){
+      desk.children[0].classList.add('active');
+      a=0;
     }
     else {
       desk.children[i+8].classList.add('active');
