@@ -38,6 +38,7 @@ for(var i= 1 ;i<= 8;i++){
       var black = document.createElement('div');
       black.className = 'black';
       black.id = String.fromCharCode(65+j)+i;
+
       desk.appendChild(black);
     }
     else{
@@ -80,10 +81,22 @@ document.body.onkeydown = function(event){
     coord.innerHTML = elem.id;
   }
   else if(event.keyCode == 38){
-  
+    
   }
   else if(event.keyCode == 40){
-    
+    coord = document.getElementById('coordinates');
+    arr=[].map.call(desk.children,function(el){return el});
+    i=arr.indexOf(document.getElementsByClassName('active')[0]);
+    desk.children[i].classList.remove('active');
+    if(i>=56){
+      desk.children[i%8+1].classList.add('active');
+      a=i%8+1;
+    }
+    else {
+      desk.children[i+8].classList.add('active');
+      a=i+8;
+    }
+    coord.innerHTML = desk.children[a].id;
   }
 }
 
